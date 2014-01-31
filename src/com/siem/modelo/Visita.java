@@ -1,4 +1,3 @@
-
 package com.siem.modelo;
 
 import java.io.Serializable;
@@ -17,74 +16,66 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "visita")
 public class Visita implements Serializable {
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
-    
-    @ManyToOne
-    @JoinColumn(name="id_usuario")
-    private Usuario usuario;
-    
-    @ManyToOne
-    @JoinColumn(name="id_cliente")
-    private Cliente cliente;
-     
-    @ManyToOne
-    @JoinColumn(name="id_supervisor")
-    private Supervisor supervisor;
-    
-    @Column(name="fecha_programada")
-    @Temporal(TemporalType.TIMESTAMP)
-     private Date fechaProgramada;
-    
-        
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	private static final long serialVersionUID = 4344332322L;
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	private String id;
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "id_cliente")
+	private Cliente cliente;
+	@ManyToOne
+	@JoinColumn(name = "id_supervisor")
+	private Supervisor supervisor;
+	@Column(name = "fecha_programada")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fechaProgramada;
 
-    public Date getFechaProgramada() {
-        return fechaProgramada;
-    }
+	public Visita() {
+	}
 
-    public Supervisor getSupervisor() {
-        return supervisor;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+	public Cliente getCliente() {
+		return cliente;
+	}
 
-    public void setFechaProgramada(Date fechaProgramada) {
-        this.fechaProgramada = fechaProgramada;
-    }
+	public Date getFechaProgramada() {
+		return fechaProgramada;
+	}
 
-    public void setSupervisor(Supervisor supervisor) {
-        this.supervisor = supervisor;
-    }
+	public Supervisor getSupervisor() {
+		return supervisor;
+	}
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+	public Usuario getUsuario() {
+		return usuario;
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%s %s %s %s %s ", id, cliente,fechaProgramada,supervisor,usuario);
-    }
-        
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
+	public void setFechaProgramada(Date fechaProgramada) {
+		this.fechaProgramada = fechaProgramada;
+	}
 
-    
+	public void setSupervisor(Supervisor supervisor) {
+		this.supervisor = supervisor;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 }

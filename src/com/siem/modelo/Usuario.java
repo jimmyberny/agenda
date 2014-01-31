@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "usuario")
 public class Usuario implements Serializable {
 
-	private static final long serialVersionUID = 42L;
+	private static final long serialVersionUID = 443411242L;
 
 	@Id
 	@GeneratedValue(generator = "uuid")
@@ -63,6 +63,11 @@ public class Usuario implements Serializable {
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
 	}
 
 }

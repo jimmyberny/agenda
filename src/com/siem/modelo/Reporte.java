@@ -1,4 +1,3 @@
-
 package com.siem.modelo;
 
 import java.io.Serializable;
@@ -15,98 +14,83 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="reporte")
+@Table(name = "reporte")
 public class Reporte implements Serializable {
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")    
-    private String id;
-    
-    @ManyToOne
-    @JoinColumn(name="id_vista")
-    private Visita visita;
-    
-    @ManyToOne
-    @JoinColumn(name="id_supervisor")
-    private Supervisor supervisor;
-    
-    @ManyToOne
-    @JoinColumn(name="id_usuario")
-    private Usuario usuario;
-    
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-     private Date fecha;
-    
-    @Column
-    private /*mediumblob*/ Object observaciones;
-            
-    @Column
-    private Object imagen;        
-    
-    
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	private static final long serialVersionUID = 4343262L;
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	private String id;
 
-    public Date getFecha() {
-        return fecha;
-    }
+	@ManyToOne
+	@JoinColumn(name = "id_vista")
+	private Visita visita;
 
-    public Object getImagen() {
-        return imagen;
-    }
+	@ManyToOne
+	@JoinColumn(name = "id_supervisor")
+	private Supervisor supervisor;
 
-    public Object getObservaciones() {
-        return observaciones;
-    }
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 
-    public Supervisor getSupervisor() {
-        return supervisor;
-    }
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fecha;
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+	@Column
+	private byte[] observaciones;
 
-    public Visita getVisita() {
-        return visita;
-    }
+	@Column
+	private byte[] imagen;
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setImagen(Object imagen) {
-        this.imagen = imagen;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setObservaciones(Object observaciones) {
-        this.observaciones = observaciones;
-    }
+	public Date getFecha() {
+		return fecha;
+	}
 
-    public void setSupervisor(Supervisor supervisor) {
-        this.supervisor = supervisor;
-    }
+	public Object getImagen() {
+		return imagen;
+	}
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+	public Object getObservaciones() {
+		return observaciones;
+	}
 
-    public void setVisita(Visita visita) {
-        this.visita = visita;
-    }
+	public Supervisor getSupervisor() {
+		return supervisor;
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%s %s %s %s %s %s %s ", id,supervisor,usuario,fecha,imagen,observaciones,visita);
-    }
-    
-    
-    
-    
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public Visita getVisita() {
+		return visita;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public void setSupervisor(Supervisor supervisor) {
+		this.supervisor = supervisor;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setVisita(Visita visita) {
+		this.visita = visita;
+	}
+
 }

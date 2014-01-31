@@ -1,4 +1,3 @@
-
 package com.siem.modelo;
 
 import java.io.Serializable;
@@ -12,40 +11,38 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "nota")
 public class Nota implements Serializable {
-    
-    private static final long serialVersionUID = 2L;
-    
-    
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
-    @Column
-    private String nombre;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	private static final long serialVersionUID = 43412562L;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	private String id;
+	@Column
+	private String nombre;
 
-    public String getId() {
-        return id;
-    }
+	public Nota() {
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%s %s ", id, nombre);
-    }
-    
-    
-  
- 
-    
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
+	}
+
 }
