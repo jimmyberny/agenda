@@ -1,4 +1,4 @@
-package com.inventory.test;
+package com.siem.test;
 
 import junit.framework.Assert;
 import org.hibernate.SessionFactory;

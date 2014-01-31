@@ -27,6 +27,8 @@
   <session-factory>
     <!-- Database connection settings -->
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <!-- =============== IMPORTANTE ================= -->
+    <!-- Su configuracion de base de datos va aqui, supongo que solo cambien el usuario y la contraseña -->
     <property name="connection.url">jdbc:mysql://localhost:3306/siem</property>
     <property name="connection.username">root</property>
     <property name="connection.password">l.juji9</property>
@@ -40,7 +42,8 @@
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
     <!-- Mapeos -->
-    <mapping class="com.siem.agenda.modelo.Usuario" />
+    <!-- Deben agregar aqui, el nombre canonico de la clase, para que hibernate lo mappee -->
+    <mapping class="com.siem.modelo.Usuario" /> 
     
     
   </session-factory>
