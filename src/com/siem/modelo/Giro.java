@@ -10,19 +10,18 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "nota")
-public class Nota implements Serializable {
-    
-    private static final long serialVersionUID = 2L;
-    
+@Table(name = "giro")
+public class Giro implements Serializable {
     
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    
     @Column
     private String nombre;
 
+    
     public void setId(String id) {
         this.id = id;
     }
@@ -44,8 +43,5 @@ public class Nota implements Serializable {
         return String.format("%s %s ", id, nombre);
     }
     
-    
-  
- 
     
 }
