@@ -31,7 +31,7 @@
     <!-- Su configuracion de base de datos va aqui, supongo que solo cambien el usuario y la contraseña -->
     <property name="connection.url">jdbc:mysql://localhost:3306/siem</property>
     <property name="connection.username">root</property>
-    <property name="connection.password">l.juji9</property>
+    <property name="connection.password">metallica</property>
     <property name="current_session_context_class">thread</property>
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">10</property>
@@ -44,7 +44,15 @@
     <!-- Mapeos -->
     <!-- Deben agregar aqui, el nombre canonico de la clase, para que hibernate lo mappee -->
     <mapping class="com.siem.modelo.Usuario" /> 
-    
-    
+    <mapping class="com.siem.modelo.Visita" /> 
+    <mapping class="com.siem.modelo.Cliente" /> 
+    <mapping class="com.siem.modelo.Supervisor" /> 
+    <mapping class="com.siem.modelo.Giro" /> 
+    <mapping class="com.siem.modelo.Localidad" /> 
+    <mapping class="com.siem.modelo.Municipio" /> 
+    <mapping class="com.siem.modelo.Nota" /> 
+    <mapping class="com.siem.modelo.RangoVentas" /> 
+    <mapping class="com.siem.modelo.Reporte" /> 
+    <mapping class="com.siem.modelo.Estado" /> 
   </session-factory>
 </hibernate-configuration>
