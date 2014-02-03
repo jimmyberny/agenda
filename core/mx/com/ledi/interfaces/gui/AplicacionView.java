@@ -9,9 +9,9 @@ import mx.com.ledi.error.AppException;
  */
 public interface AplicacionView extends AplicacionBean {
 
-	public void show() throws AppException;
+	public void showView() throws AppException;
 
-	public boolean hide();
+	public boolean hideView();
 
 	public String getTitle();
 

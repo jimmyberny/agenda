@@ -1,6 +1,7 @@
 package mx.com.ledi.interfaces.gui;
 
 import mx.com.ledi.gui.menu.MenuUtil;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -8,6 +9,8 @@ import mx.com.ledi.gui.menu.MenuUtil;
  */
 public interface Aplicacion {
 
+	public SessionFactory getFactory();
+	
 	public MenuUtil getMenu();
 
 	public void mostrarTarea(String tarea);

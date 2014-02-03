@@ -31,6 +31,7 @@ public class Agenda extends AplicacionFrame {
 		this.factory = factory;
 		nav = new CardNavigator(jpContenido);
 
+		cache = new AppMapCache();
 		init();
 	}
 
@@ -53,9 +54,11 @@ public class Agenda extends AplicacionFrame {
 		log.info("La base de datos es correcto.");
 
 		menu = new MenuUtil();
-		menu.menu("Aplicacion");
-		menu.menu("Acerca de");
+		menu.menu("Datos");
+		menu.addItem("title.usuarios", AgendaClaves.USUARIOS);
 		menu.closeSub();
+		
+		menu.menu("Acerca de");
 		menu.closeSub();
 
 		tmMenu.init(this);
@@ -70,7 +73,7 @@ public class Agenda extends AplicacionFrame {
 
 	@Override
 	public void mostrarTarea(String tarea) {
-		if (vistaActual != null && !vistaActual.hide()) {
+		if (vistaActual != null && !vistaActual.hideView()) {
 			return;
 		}
 
@@ -84,6 +87,8 @@ public class Agenda extends AplicacionFrame {
 				vista.init(this); // Pass data
 				cache.put(tarea, vista); // Cacching data
 				jpContenido.add(vista.getComponent(), tarea);
+			} catch (AppException ex) {
+				log.error(ex.getMessage(), ex);
 			} catch (ClassNotFoundException ex) {
 				log.error(ex.getMessage(), ex);
 			} catch (InstantiationException ex) {
@@ -95,7 +100,7 @@ public class Agenda extends AplicacionFrame {
 
 		if (vista != null) {
 			try {
-				vista.show();
+				vista.showView();
 				// El titlo
 				nav.moveTo(tarea);
 			} catch (AppException aex) {
@@ -112,12 +117,22 @@ public class Agenda extends AplicacionFrame {
 				bean = (AplicacionBean) Class.forName(className).newInstance();
 				bean.init(this);
 				cache.put(className, bean);
+			} catch (AppException ex) {
+				log.error(ex.getMessage(), ex);
 			} catch (ClassNotFoundException ex) {
+				log.error(ex.getMessage(), ex);
 			} catch (InstantiationException ex) {
+				log.error(ex.getMessage(), ex);
 			} catch (IllegalAccessException ex) {
+				log.error(ex.getMessage(), ex);
 			}
 		}
 		return bean;
+	}
+
+	@Override
+	public SessionFactory getFactory() {
+		return factory;
 	}
 
 	@SuppressWarnings("unchecked")

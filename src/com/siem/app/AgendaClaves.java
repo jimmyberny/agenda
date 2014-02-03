@@ -6,4 +6,7 @@ package com.siem.app;
  */
 public class AgendaClaves {
 
+	// Claves para las vistas
+	public static final String USUARIOS = "com.siem.datos.UsuarioVista";
+
 }
