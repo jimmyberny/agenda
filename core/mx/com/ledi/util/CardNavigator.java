@@ -2,6 +2,7 @@ package mx.com.ledi.util;
 
 import java.awt.CardLayout;
 import java.awt.Container;
+import java.beans.PropertyChangeSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,5 +1,6 @@
 package mx.com.ledi.util;
 
+import java.awt.Window;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 

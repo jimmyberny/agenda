@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Enrique
+ * @author Enrique, el de plaza Sesámo.
  */
 public class AppMensaje {
 

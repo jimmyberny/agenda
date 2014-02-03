@@ -16,7 +16,7 @@ public class AppInt {
 	//
 	private static ResourceBundle res = ResourceBundle.getBundle("lang", Locale.getDefault());
 	private static MessageFormat msg = new MessageFormat("", Locale.getDefault());
-	private static String fmtErr = "** %s **";
+	private static final String fmtErr = "** %s **";
 
 	public static String str(String label, Object... params) {
 		String i18n = String.format(fmtErr, label);
